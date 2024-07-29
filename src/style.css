@@ -6,9 +6,18 @@
 
 body,html{
   background-color: #f1f1f1;
-  font-family: 'Helvetica';
+  font-family: 'Helvetica', sans-serif;
   overflow: hidden;
   display:flex;
   padding: 0;
   margin: 0;
 }
+
+#canvas{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
