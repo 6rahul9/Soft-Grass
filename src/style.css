@@ -21,3 +21,13 @@ body,html{
   top: 0;
 }
 
+nav{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  z-index: 100;
+}
