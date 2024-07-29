@@ -94,3 +94,11 @@ na a img{
   transition: all 0.3 ease; 
 }
 
+.randomizeButton:hover{
+  color: #718F74;
+}
+
+.randomizeButton:active{
+  background-color: #000000;
+  opacity: 0.7;
+}
