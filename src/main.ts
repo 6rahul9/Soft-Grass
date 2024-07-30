@@ -5,7 +5,8 @@ import * as dat from 'dat.gui'
 
 import { OrbitControls } from "three/examples/jsm/Addons.js"
 import { MeshSurfaceSampler } from "three/examples/jsm/Addons.js"
-import { GrassMaterial } from "./GrassMaterial";
+// import { GrassMaterial } from "./GrassMaterial.ts";
+import GrassMaterial from './GrassMaterial.ts';
  
 
 export class FluffyGrass{
@@ -39,5 +40,5 @@ export class FluffyGrass{
     private grassGeometry = new THREE.BufferGeometry();
     private grassMaterial : GrassMaterial;
     private grassCount : 8000;
-    
+
 }
