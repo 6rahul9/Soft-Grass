@@ -30,5 +30,14 @@ export class FluffyGrass{
 
     private textures : {[key : string] : THREE.Texture } = {};
 
+    Uniforms = {
+        uTime : {value : 0 },
+        color : { value : new THREE.Color('#000ff')},
+    };
+
+    private terrainMat : THREE.MeshPhongMaterial;
+    private grassGeometry = new THREE.BufferGeometry();
+    private grassMaterial : GrassMaterial;
+    private grassCount : 8000;
     
 }
