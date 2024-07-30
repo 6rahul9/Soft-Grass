@@ -53,6 +53,28 @@ export class FluffyGrass{
         // this.canvas.style.pointerEvents = 'all'
         this.stats = new Stats({minimal : true,})
 
-        this.camera = new THREE.PerspectiveCamera
+        this.camera = new THREE.PerspectiveCamera( 75,
+        window.innerWidth / window.innerHeight, 0.1, 1000)
+        
+        this.camera.position.set(-17, 10, -12)
+        this.scene = new THREE.Scene()
+
+        this.scene.background = new THREE.Color(this.sceneProps.fogColor)
+        this.scene.fog = new THREE.FogExp2(
+            this.sceneProps.fogColor,
+            this.sceneProps.fogDensity
+        );
+
+        this.renderer = new THREE.WebGLRenderer({
+            canvas : this.canvas,
+            antialias : true,
+            alpha : true,
+            precision: "highp" //use high precision
+        })
+
+        this.renderer.shadowMap.enabled = true;
+        this.renderer.shadowMap.autoUpdate = true;
+        this.renderer.shadowMap.autoUpdate = true;
+
     }
 }
