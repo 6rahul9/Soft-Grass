@@ -40,5 +40,19 @@ export class FluffyGrass{
     private grassGeometry = new THREE.BufferGeometry();
     private grassMaterial : GrassMaterial;
     private grassCount : 8000;
+    
+    constructor(_canvas : HTMLCanvasElement){
+        this.loadingManager = new THREE.LoadingManager;
+        this.textureLoader = new THREE.TextureLoader(this.loadingManager)
 
+        this.gui = new dat.GUI()
+        this. gltfLoader = new GLTFLoader(this.loadingManager)
+
+        this.canvas = _canvas;
+
+        // this.canvas.style.pointerEvents = 'all'
+        this.stats = new Stats({minimal : true,})
+
+        this.camera = new THREE.PerspectiveCamera
+    }
 }
