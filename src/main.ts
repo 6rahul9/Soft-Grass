@@ -5,9 +5,30 @@ import * as dat from 'dat.gui'
 
 import { OrbitControls } from "three/examples/jsm/Addons.js"
 import { MeshSurfaceSampler } from "three/examples/jsm/Addons.js"
-import { GrassMaterial } from './GrassMaterial'
+import { GrassMaterial } from "./GrassMaterial";
  
 
 export class FluffyGrass{
+    //need access to these outside the computer 
+
+    private loadingManager : THREE.LoadingManager;
+    private textureLoader: THREE.TextureLoader;
+    private gltfLoader: GLTFLoader;
+    
+    private camera: THREE.PerspectiveCamera;
+    private renderer : THREE.WebGLRenderer;
+    private scene : THREE.Scene
+    private canvas: HTMLCanvasElement;
+    private Stats : Stats;
+    private orbitControls : OrbitControls;
+    private gui: dat.GUI;
+    private sceneProps = {
+        fogColor : '#eeeeee',
+        terrainColor: '#5e875e',
+        fogDensity: 0.02,
+    };
+
+    private textures : {[key : string] : THREE.Texture } = {};
+
     
 }
