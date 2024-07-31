@@ -74,7 +74,8 @@ export class FluffyGrass{
 
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.autoUpdate = true;
-        this.renderer.shadowMap.autoUpdate = true;
+        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        
 
     }
 }
