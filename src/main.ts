@@ -75,7 +75,11 @@ export class FluffyGrass{
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.autoUpdate = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        this.renderer.outputColorSpace = THREE.SRGBColorSpace
+        this.renderer.toneMapping = THREE.ACESFilmicToneMapping
+        this.renderer.setSize(window.innerWidth, window.innerHeight)
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+        this.scene.frustumCulled = true;
         
-
     }
 }
