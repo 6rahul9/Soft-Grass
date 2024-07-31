@@ -80,6 +80,12 @@ export class FluffyGrass{
         this.renderer.setSize(window.innerWidth, window.innerHeight)
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
         this.scene.frustumCulled = true;
-        
+
+        this.orbitControls = new OrbitControls(this.camera, this.canvas)
+        this.orbitControls.autoRotate = true
+        this.orbitControls.autoRotateSpeed = -0.5;
+        this.orbitControls.enableDamping = true;
+        this.grassMaterial = new GrassMaterial()
+        this.terrainMat = THREE.MeshPhongMaterial({ color: })
     }
 }
