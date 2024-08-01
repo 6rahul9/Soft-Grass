@@ -91,5 +91,13 @@ export class FluffyGrass{
         this.init();
     }
 
-    
+    private init(){
+        this.setupGUI();
+        this.setupStats();
+        this.setupTextures();
+        // this.createTube()
+        this.loadMIdels()
+        
+
+    }
 }
