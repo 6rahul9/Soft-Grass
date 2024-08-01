@@ -86,6 +86,10 @@ export class FluffyGrass{
         this.orbitControls.autoRotateSpeed = -0.5;
         this.orbitControls.enableDamping = true;
         this.grassMaterial = new GrassMaterial()
-        this.terrainMat = THREE.MeshPhongMaterial({ color: })
+        this.terrainMat = new THREE.MeshPhongMaterial({ color: this.sceneProps.terrainColor,});
+
+        this.init();
     }
+
+    
 }
