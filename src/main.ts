@@ -96,8 +96,8 @@ export class FluffyGrass{
         this.setupStats();
         this.setupTextures();
         // this.createTube()
-        this.loadMIdels()
-        
-
+        this.loadModels()
+        this.setupEventListiner()
+        this.addLights();
     }
 }
