@@ -6,4 +6,5 @@ interface GrassUniformInterface{
     uTime?: { value: number }
     uEnableShadow?: { value: boolean }
     uShadowDarkness?: { value: number }
+    uGrassLightIntensity?: { }
 }
