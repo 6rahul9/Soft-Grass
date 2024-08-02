@@ -7,4 +7,5 @@ interface GrassUniformInterface{
     uEnableShadow?: { value: boolean }
     uShadowDarkness?: { value: number }
     uGrassLightIntensity?: { value: number }
+    uNoiseScale?: { value: number}
 }
