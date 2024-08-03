@@ -4,7 +4,7 @@ import * as THREE from "three"
 
 interface GrassUniformInterface{
     uTime?: { value: number }
-    uEnableShadow?: { value: boolean }
+    uEnableShadows?: { value: boolean }
     uShadowDarkness?: { value: number }
     uGrassLightIntensity?: { value: number }
     uNoiseScale?: { value: number}
@@ -29,7 +29,7 @@ export class GrassMaterial{
 
     uniforms: {[key: string] : {value: any} } = {
         uTime: {value: 0},
-        uEnaableShadow : { value : true},
+        uEnaableShadows : { value : true},
         uShadowDarkness : { value : 0.5},
         uGrassLightIntensity : { value : 1},
         uNoiseScale : { value : 1.5},
@@ -66,10 +66,37 @@ export class GrassMaterial{
 
     public updateGrassGraphicsChange(high: boolean = true){
         if(!high){
-            this.uniforms.uEnaableShadow.value = false;
+            this.uniforms.uEnableShadows.value = false;
         }
         else{
-            this.uniforms.uEnaableShadow.value = true;
+            this.uniforms.uEnableShadows.value = true;
+        }
+    }
+
+
+    update(delta:number){
+        this.uniforms.uTime.value = delta
+    }
+
+    private setupGrassMaterial(material: THREE.Material){
+        material.onBeforeCompile = shader => {
+            shader.uniforms = {
+                ...shader.uniforms,
+                utime: this.uniforms.uTime,
+                uTipColor1 : this.uniforms.tipColor1,
+                uTipColor2 : this.uniforms.tipColor2,
+                uBaseColor : this.uniforms.baseColor,
+                uEnableShadows : this.uniforms.uEnableShadows,
+                uShadowDarkness : this.uniforms.uShadowDarkness,
+                uGrassLightIntensity : this.uniforms.uGrassLightIntensity,
+                uNoisescale : this.uniforms.uNoiseScale,
+                uNoiseTexture : this.uniforms.noiseTexture,
+                uGrassAlphaTexture : this.uniforms.grassAlphaTexture,
+                fogColor2 : this.uniforms.fogColor2,
+                fogColor3 : this.uniforms.fogColor3,
+            }
+
+            
         }
     }
 }
