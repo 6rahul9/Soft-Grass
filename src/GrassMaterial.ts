@@ -63,4 +63,13 @@ export class GrassMaterial{
 
         this.setupGrassMaterial(this.material);
     }
+
+    public updateGrassGraphicsChange(high: boolean = true){
+        if(!high){
+            this.uniforms.uEnaableShadow.value = false;
+        }
+        else{
+            this.uniforms.uEnaableShadow.value = true;
+        }
+    }
 }
