@@ -26,4 +26,20 @@ export class GrassMaterial{
         tipColor1:  "#9bd38d",
         tipColor2:  "#1f352a"
     }
+
+    uniforms: {[key: string] : {value: any} } = {
+        uTime: {value: 0},
+        uEnaableShadow : { value : true},
+        uShadowDarkness : { value : 0.5},
+        uGrassLightIntensity : { value : 1},
+        uNoiseScale : { value : 1.5},
+        uPlayerPosition : { value : new THREE.Vector3()},
+        baseColor : { value : new THREE.Color(this.grassColorProps.baseColor)},
+        triColor1 : { value : new THREE.Color(this.grassColorProps.tipColor1)},
+        triColor2 : { value : new THREE.Color(this.grassColorProps.tipColor2)},
+
+        noiseTexture : { value : new THREE.Texture()},
+        grassAlphaTexture : { value : new THREE.Texture()},
+    }
+
 }
