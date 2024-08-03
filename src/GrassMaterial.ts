@@ -51,10 +51,16 @@ export class GrassMaterial{
         }
     }
 
-    constructor (grassProps? : GrassUniformsInterface){
-        this.marginUniforms(grassProps)
+    constructor(grassProps? : GrassUniformsInterface){
+        this.mergeUniforms(grassProps)
         this.material = new THREE.MeshLambertMaterial({
-            side:THREE.doubleSide
+            side:THREE.DoubleSide,
+            color : 0x229944,
+            transparent : true,
+            alphaTest : 0.1,
+            shadowSide : 1,
         })
+
+        this.setupGrassMaterial(this.material);
     }
 }
