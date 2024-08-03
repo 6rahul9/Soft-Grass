@@ -12,5 +12,8 @@ interface GrassUniformInterface{
     baseColor?: { value: THREE.Color}
     tipColor1?: { value: THREE.Color}
     tipColor2?: { value: THREE.Color}
-    
+    noiseTexture?: { value: THREE.Texture}
+    glassAlphatexture?:{ value: THREE.Texture}
+    fogColor2?: { value: THREE.Color}
+    fogColor3?: { value: THREE.Color}
 }
