@@ -17,3 +17,13 @@ interface GrassUniformInterface{
     fogColor2?: { value: THREE.Color}
     fogColor3?: { value: THREE.Color}
 }
+
+export class GrassMaterial{
+    material: THREE.Material
+
+    private grassColorProps = {
+        baseColor : "#313f1b",
+        tipColor1:  "#9bd38d",
+        tipColor2:  "#1f352a"
+    }
+}
