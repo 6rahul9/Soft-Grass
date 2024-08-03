@@ -42,4 +42,19 @@ export class GrassMaterial{
         grassAlphaTexture : { value : new THREE.Texture()},
     }
 
+    private mergeUniforms(newUniforms?: GrassUniformsInterface){
+        if(!newUniforms) return;
+        for(const [key, value] of Object.entries(newUniforms)){
+            if(value && this.uniforms.hasOwnProperty(key)){
+                this.uniforms[key] . value = value 
+            }
+        }
+    }
+
+    constructor (grassProps? : GrassUniformsInterface){
+        this.marginUniforms(grassProps)
+        this.material = new THREE.MeshLambertMaterial({
+            side:THREE.doubleSide
+        })
+    }
 }
