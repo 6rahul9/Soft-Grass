@@ -96,7 +96,8 @@ export class GrassMaterial{
                 fogColor3 : this.uniforms.fogColor3,
             }
 
-            
+            shader.vertexShader = `\\ fog
+            `
         }
     }
 }
