@@ -97,7 +97,11 @@ export class GrassMaterial{
             }
 
             shader.vertexShader = `\\ fog
-            `
+            #include <common>
+            #include <fog_pars_vertex>
+            
+            //fog
+            #include <>`
         }
     }
 }
