@@ -102,7 +102,8 @@ export class GrassMaterial{
             
             //fog
             #include <shadowmap_pars_vertex>
-            uniform sampler2D`
+            uniform sampler2D uNoiseTexture
+            `
         }
     }
 }
