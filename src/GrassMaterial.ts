@@ -101,7 +101,8 @@ export class GrassMaterial{
             #include <fog_pars_vertex>
             
             //fog
-            #include <>`
+            #include <shadowmap_pars_vertex>
+            uniform sampler2D`
         }
     }
 }
