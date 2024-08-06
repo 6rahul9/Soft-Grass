@@ -122,6 +122,13 @@ export class GrassMaterial{
 
             //fog
 
+            //shadow
+            #include <beginnormal_vertex>            
+            #include <defaultnormal_vertex>            
+            #include <worldpos_vertex>            
+            #include <shadowmap_vertex>            
+            //shadow
+
             
             }
             `
