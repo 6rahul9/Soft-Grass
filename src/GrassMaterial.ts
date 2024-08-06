@@ -145,7 +145,11 @@ export class GrassMaterial{
             float terrainSize = 100;
             vGlobalUV = (terrainSize - vec2(modelPositon.xz))/ terrainSize;
 
-            vec4 noise = texture2D(uniosetexture)
+            vec4 noise = texure2D(uNioseTexture, vGlobalUV + uTime * uNoiseSpeeed)
+
+            float sinWave = sin(uWindFreq * dot (windDirection, vGlobalUV) + noise.g * uNoiseFactor + uTime * uSpeed) * uWindAmp * (1.-uv.y);
+
+            
             }
             `
         }
