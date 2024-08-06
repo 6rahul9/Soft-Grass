@@ -129,6 +129,16 @@ export class GrassMaterial{
             #include <shadowmap_vertex>            
             //shadow
 
+            //wind effect
+            
+            vec2 uWindDirection = vec2 (1.0, 1.0)
+            float uWindAmp = 0.1
+            fload uWindFreq = 50.0;
+            fload uSpeed = 1.0
+            float uNoiseFactor = 5.50
+            float uNoiseSpeed = 0.001;
+
+
             
             }
             `
