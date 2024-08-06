@@ -154,7 +154,19 @@ export class GrassMaterial{
             modelPositio.x += xDisp
             modelPositio.z += zDisp
 
-            
+            //Use Perlinenoise to vary  the terrain height of the grass
+
+            modelPosition.y += exp(texture2D(uNoisetexture, vGlobalUV * uNoiseScale).r) * 0.5 * (1.-uv.y)
+
+            vec4 viewPosition = viewMatrix * modelPosition
+            vec4 projectedPosition = projectionMatrix * viewPosition;
+            gl_Position = projectedPosition
+
+
+            //assign varying
+
+            vUv = vec2(uv.x,1.-uv.y)
+            vNormal = normalize (normalMatrix * normal )
             }
             `
         }
