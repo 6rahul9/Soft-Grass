@@ -169,10 +169,25 @@ export class GrassMaterial{
             vNormal = normalize (normalMatrix * normal )
             vWindColor = vec2(xDisp, zDisp)
             vViewPosition = mvPosition.xyz;
-            }
+        }`;
 
-            
-            `
+        shader.fragmentShader = `
+        #include <alphatest_pars_fragment>
+        #include <alphamap_pars_fragment>
+        
+        
+        //fog
+        #include <fog_pars_fragment>
+        //fog
+
+        #include <common>
+        #include <packing>
+        #include <lights_pars_begin>
+        #include <shadow_pars_fragment>
+        #include <shadowmask_pars_fragment>
+        
+
+        `
         }
     }
 }
