@@ -149,6 +149,11 @@ export class GrassMaterial{
 
             float sinWave = sin(uWindFreq * dot (windDirection, vGlobalUV) + noise.g * uNoiseFactor + uTime * uSpeed) * uWindAmp * (1.-uv.y);
 
+            float xDisp = sinWave;
+            float zDisp = sinWave;
+            modelPositio.x += xDisp
+            modelPositio.z += zDisp
+
             
             }
             `
