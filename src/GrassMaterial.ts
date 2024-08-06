@@ -103,6 +103,20 @@ export class GrassMaterial{
             //fog
             #include <shadowmap_pars_vertex>
             uniform sampler2D uNoiseTexture
+            uniform fload uNioseScale
+            uniform float UTime
+            
+            varying vec3 vColor
+            varying vec2 vGlobal UV
+            varying vec2 vUv
+            varying vec3 vNormal
+            varying vec3 vViewPosition
+            varying vec2 vWindColor
+            void main(){
+            #include <color_vertex>
+            
+            //fog
+            }
             `
         }
     }
