@@ -167,7 +167,11 @@ export class GrassMaterial{
 
             vUv = vec2(uv.x,1.-uv.y)
             vNormal = normalize (normalMatrix * normal )
+            vWindColor = vec2(xDisp, zDisp)
+            vViewPosition = mvPosition.xyz;
             }
+
+            
             `
         }
     }
