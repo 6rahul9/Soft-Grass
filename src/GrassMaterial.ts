@@ -228,7 +228,19 @@ export class GrassMaterial{
             float Shadow = 0.0;
             float currentShadow = 0.0;
             float NdotL 
-            
+
+            if(uenableShadows == 1){
+                #if (NUM_DIR_LIGHTS > 0)
+                    DirectionalLight directionalLight;
+                #if defined(USE_SHADOWMAP) && NUM_DIR_LIGHT_SHADOWS > 0 
+                    DirectionalLightShadow directionalLightShadow;
+
+            #endif
+                #pagma unroll_loop_start
+                for(int i = 0; i<NUM_DIR_LIGHT; i++){
+                    
+                }
+            }
         }
         `
         }
