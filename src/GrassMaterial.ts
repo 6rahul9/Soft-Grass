@@ -215,7 +215,15 @@ export class GrassMaterial{
 
             vec4 diffuseColor = vec4(mix(uBaseColor, tipColor,vUv.y), step (0.1, grassAlpha.r));
 
-            
+            vec3 grassFinalColor = diffuseColor.rgb * uGrassLightIntensity;
+
+            //light calculated drive from <lights_fragment_begin>
+
+            vec3 geometryPosition = vViewPosition 
+            vec3 geometryNormal = vNormal
+            vec3 geometryViewDir = (isOrthographic) ? vec3(0,0,1) : normalize (vViewPosition);
+
+            vec3 geometryClear
         }
         `
         }
