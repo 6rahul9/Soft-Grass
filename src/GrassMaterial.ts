@@ -238,7 +238,16 @@ export class GrassMaterial{
             #endif
                 #pagma unroll_loop_start
                 for(int i = 0; i<NUM_DIR_LIGHT; i++){
-                    
+                  directionalLight  = directionalLights[ i ]
+                  getDirectionalLightInfo( directionalLight, directLight)
+                  directionalLightShadow = directionalLightShadows[ i ]
+                  currentShadow = getShadow (directionalShadowMap[ i ],
+                  directionalLightShadow.shadowMapSize,
+                  directionalLightShadow.shadowBias,
+                  directionalLightShadow.shadowRadius,
+                  vDirectionalShadowCoord[ i ]);
+
+                  currentShadow
                 }
             }
         }
