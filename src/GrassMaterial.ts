@@ -249,9 +249,19 @@ export class GrassMaterial{
 
                   currentShadow = all (bvec2(directLight.visible,
                   reciveShadow ) ) ? currentShadow : 1.0;
-                  float weigt = clamp()
+                  float weigt = clamp(pow(length(vDirectionalShadowCoord[ i ].xy * 2. -1. ), 4.), .0, 1.)
+
+                  shadow += mix(currentShadow, 1., weight)
                 }
+
+                #pragma unroll_loop_end
+                #endif
+                grassFinalColor = mix(grassFinalColor, grassFinalColor * uShadowDarkness, 1.-shadow);
+            }else{
+            grassFinalColor = grassFinalColor;
             }
+
+            
         }
         `
         }
