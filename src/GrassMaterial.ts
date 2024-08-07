@@ -209,6 +209,13 @@ export class GrassMaterial{
         void main (){
             vec4 grassAlpha = texture2D(uGrassAlphaTexture, vUv)
             
+            vec4 grassVariation = texture2D(uNoiseTexture, vGlobalUV * uNoiseScale)
+
+            vec3 tipColor = mix(uTipColor1, uTipColor2, grassVariation.r)
+
+            vec4 diffuseColor = vec4(mix(uBaseColor, tipColor,vUv.y), step (0.1, grassAlpha.r));
+
+            
         }
         `
         }
