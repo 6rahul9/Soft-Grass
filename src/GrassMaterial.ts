@@ -186,6 +186,14 @@ export class GrassMaterial{
         #include <shadow_pars_fragment>
         #include <shadowmask_pars_fragment>
         
+        uniform float uTime
+        uniform vec3 uBaseColor
+        uniform vec3 uTipColor1
+        uniform vec3 uTipColor2
+        uniform sampler2D uGrassAlphaTexture
+        uniform sampler2D uNoiseTexture
+        uniform float uNoiseScale
+        uniform float uEnableshadows
 
         `
         }
