@@ -194,6 +194,13 @@ export class GrassMaterial{
         uniform sampler2D uNoiseTexture
         uniform float uNoiseScale
         uniform float uEnableshadows
+        
+        uniform float uGrassLightIntensity
+        uniform float uShadowDarkness
+        uniform float uDayTime
+        varying vec3 vColor
+
+        
 
         `
         }
