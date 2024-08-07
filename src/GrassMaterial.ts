@@ -261,7 +261,11 @@ export class GrassMaterial{
             grassFinalColor = grassFinalColor;
             }
 
+            diffuseColor.rgb = clamp(diffuseColor.rgb * shadow,0.0,1.0);
             
+            #include <alphatest_fragment>
+
+            gl_FragColor = vec4(grassFinalColor, 1.0)
         }
         `
         }
