@@ -247,7 +247,9 @@ export class GrassMaterial{
                   directionalLightShadow.shadowRadius,
                   vDirectionalShadowCoord[ i ]);
 
-                  currentShadow
+                  currentShadow = all (bvec2(directLight.visible,
+                  reciveShadow ) ) ? currentShadow : 1.0;
+                  float weigt = clamp()
                 }
             }
         }
