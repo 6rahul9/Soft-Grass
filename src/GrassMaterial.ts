@@ -223,7 +223,12 @@ export class GrassMaterial{
             vec3 geometryNormal = vNormal
             vec3 geometryViewDir = (isOrthographic) ? vec3(0,0,1) : normalize (vViewPosition);
 
-            vec3 geometryClear
+            vec3 geometryClearcoatNormal
+            IncidentLight directLight
+            float Shadow = 0.0;
+            float currentShadow = 0.0;
+            float NdotL 
+            
         }
         `
         }
