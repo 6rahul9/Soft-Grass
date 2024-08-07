@@ -200,8 +200,16 @@ export class GrassMaterial{
         uniform float uDayTime
         varying vec3 vColor
 
-        
+        varying vec2 vUv
+        varying vec2 vGlobalUV
+        varying vec2 vNormal
+        varying vec2 vViewPosition
+        varying vec2 vWindColor
 
+        void main (){
+            vec4 grassAlpha = texture2D(uGrassAlphaTexture, vUv)
+            
+        }
         `
         }
     }
