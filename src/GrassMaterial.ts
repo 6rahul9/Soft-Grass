@@ -283,6 +283,17 @@ export class GrassMaterial{
     }
 
     setupTextures(grassAlphaTexture: THREE.Texture, noiseTexture: THREE.Texture){
-        
+        this.uniforms.grassAlphaTexture.value = grassAlphaTexture
+        this.uniforms.noiseTexture.value = noiseTexture;
+    }
+
+    setupGUI(gui: GUI){
+        const folder = gui.addFolder("Grass Props")
+        folder.addColor(this.grassColorProps,"baseColor").onChange((value)
+        => {
+            this.uniforms.baseColor.value.set(value);
+        });
+
+        folder.addColor
     }
 }
