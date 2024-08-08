@@ -266,6 +266,14 @@ export class GrassMaterial{
             #include <alphatest_fragment>
 
             gl_FragColor = vec4(grassFinalColor, 1.0)
+
+            //uncomment to utilize Wind
+            //vec3 windColorViz = vec3((vWindColor.x + vWindColor.y)/.)
+            //gl_FragColor = vec4(windColorViz, 1.0)
+
+            #include <tonemapping_fragment>
+            #include <colorspace_fragment>
+
         }
         `
         }
