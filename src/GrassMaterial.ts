@@ -294,6 +294,13 @@ export class GrassMaterial{
             this.uniforms.baseColor.value.set(value);
         });
 
-        folder.addColor
+        folder.addColor(this.grassColorProps,"tipColor1").onChange((value)
+        => {
+            this.uniforms.tipColor1.value.set(value);  
+        })
+        folder.addColor(this.grassColorProps,"tipColor2").onChange((value)
+        => {
+            this.uniforms.tipColor2.value.set(value);  
+        })
     }
 }
