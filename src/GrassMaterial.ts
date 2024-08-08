@@ -29,7 +29,7 @@ export class GrassMaterial{
 
     uniforms: {[key: string] : {value: any} } = {
         uTime: {value: 0},
-        uEnaableShadows : { value : true},
+        uEnableShadows : { value : true},
         uShadowDarkness : { value : 0.5},
         uGrassLightIntensity : { value : 1},
         uNoiseScale : { value : 1.5},
@@ -302,5 +302,30 @@ export class GrassMaterial{
         => {
             this.uniforms.tipColor2.value.set(value);  
         })
+        folder.add(this.uniforms.uNoiseScale,"value", 0, 5).name("Noise Scale")
+        folder.add(this.uniforms.uGrassLightIntensity, "value", 0,2).name("Light Intensity");
+        folder.add(this.uniforms.uShadowDarkness, "value", 0,1).name("ShadowDarkness");
+        folder.add(this.uniforms.uEnableShadows, "value", 0,1).name("ShadowDarkness");
+
+        folder.open();
+
     }
 }
+
+
+
+// ************** USAGE **************
+/*
+import { GrassMaterial } from "./GrassMaterial";
+
+// in your main class
+const grassMaterial: GrassMaterial;
+// in your setup function
+grassMaterial = new GrassMaterial();
+// after loading the textures
+grassMaterial.setupTextures(this.textures.grassAlpha, this.textures.perlinNoise);
+// in your render function
+uTime += this.clock.getDelta();
+grassMaterial.update(uTime);
+
+*/
