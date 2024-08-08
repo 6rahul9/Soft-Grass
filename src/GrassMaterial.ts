@@ -206,76 +206,83 @@ export class GrassMaterial{
         varying vec2 vViewPosition
         varying vec2 vWindColor
 
-        void main (){
-            vec4 grassAlpha = texture2D(uGrassAlphaTexture, vUv)
-            
-            vec4 grassVariation = texture2D(uNoiseTexture, vGlobalUV * uNoiseScale)
+            void main (){
+                vec4 grassAlpha = texture2D(uGrassAlphaTexture, vUv)
+                
+                vec4 grassVariation = texture2D(uNoiseTexture, vGlobalUV * uNoiseScale)
 
-            vec3 tipColor = mix(uTipColor1, uTipColor2, grassVariation.r)
+                vec3 tipColor = mix(uTipColor1, uTipColor2, grassVariation.r)
 
-            vec4 diffuseColor = vec4(mix(uBaseColor, tipColor,vUv.y), step (0.1, grassAlpha.r));
+                vec4 diffuseColor = vec4(mix(uBaseColor, tipColor,vUv.y), step (0.1, grassAlpha.r));
 
-            vec3 grassFinalColor = diffuseColor.rgb * uGrassLightIntensity;
+                vec3 grassFinalColor = diffuseColor.rgb * uGrassLightIntensity;
 
-            //light calculated drive from <lights_fragment_begin>
+                //light calculated drive from <lights_fragment_begin>
 
-            vec3 geometryPosition = vViewPosition 
-            vec3 geometryNormal = vNormal
-            vec3 geometryViewDir = (isOrthographic) ? vec3(0,0,1) : normalize (vViewPosition);
+                vec3 geometryPosition = vViewPosition 
+                vec3 geometryNormal = vNormal
+                vec3 geometryViewDir = (isOrthographic) ? vec3(0,0,1) : normalize (vViewPosition);
 
-            vec3 geometryClearcoatNormal
-            IncidentLight directLight
-            float Shadow = 0.0;
-            float currentShadow = 0.0;
-            float NdotL 
+                vec3 geometryClearcoatNormal
+                IncidentLight directLight
+                float Shadow = 0.0;
+                float currentShadow = 0.0;
+                float NdotL 
 
-            if(uenableShadows == 1){
-                #if (NUM_DIR_LIGHTS > 0)
-                    DirectionalLight directionalLight;
-                #if defined(USE_SHADOWMAP) && NUM_DIR_LIGHT_SHADOWS > 0 
-                    DirectionalLightShadow directionalLightShadow;
+                if(uEnableShadows == 1){
+                    #if (NUM_DIR_LIGHTS > 0)
+                        DirectionalLight directionalLight;
+                    #if defined(USE_SHADOWMAP) && NUM_DIR_LIGHT_SHADOWS > 0 
+                        DirectionalLightShadow directionalLightShadow;
 
-            #endif
-                #pagma unroll_loop_start
-                for(int i = 0; i<NUM_DIR_LIGHT; i++){
-                  directionalLight  = directionalLights[ i ]
-                  getDirectionalLightInfo( directionalLight, directLight)
-                  directionalLightShadow = directionalLightShadows[ i ]
-                  currentShadow = getShadow (directionalShadowMap[ i ],
-                  directionalLightShadow.shadowMapSize,
-                  directionalLightShadow.shadowBias,
-                  directionalLightShadow.shadowRadius,
-                  vDirectionalShadowCoord[ i ]);
+                    #endif
+                        #pagma unroll_loop_start
+                        for(int i = 0; i<NUM_DIR_LIGHT; i++){
+                        directionalLight  = directionalLights[ i ]
+                        getDirectionalLightInfo( directionalLight, directLight)
+                        directionalLightShadow = directionalLightShadows[ i ]
+                        currentShadow = getShadow (directionalShadowMap[ i ],
+                        directionalLightShadow.shadowMapSize,
+                        directionalLightShadow.shadowBias,
+                        directionalLightShadow.shadowRadius,
+                        vDirectionalShadowCoord[ i ]);
 
-                  currentShadow = all (bvec2(directLight.visible,
-                  reciveShadow ) ) ? currentShadow : 1.0;
-                  float weigt = clamp(pow(length(vDirectionalShadowCoord[ i ].xy * 2. -1. ), 4.), .0, 1.)
+                        currentShadow = all (bvec2(directLight.visible,
+                        reciveShadow ) ) ? currentShadow : 1.0;
+                        float weigt = clamp(pow(length(vDirectionalShadowCoord[ i ].xy * 2. -1. ), 4.), .0, 1.)
 
-                  shadow += mix(currentShadow, 1., weight)
+                        shadow += mix(currentShadow, 1., weight)
+                        }
+
+                        #pragma unroll_loop_end
+                        #endif
+                        grassFinalColor = mix(grassFinalColor, grassFinalColor * uShadowDarkness, 1.-shadow);
+                    }else{
+                grassFinalColor = grassFinalColor;
                 }
 
-                #pragma unroll_loop_end
-                #endif
-                grassFinalColor = mix(grassFinalColor, grassFinalColor * uShadowDarkness, 1.-shadow);
-            }else{
-            grassFinalColor = grassFinalColor;
+                diffuseColor.rgb = clamp(diffuseColor.rgb * shadow,0.0,1.0);
+                
+                #include <alphatest_fragment>
+
+                gl_FragColor = vec4(grassFinalColor, 1.0)
+
+                //uncomment to utilize Wind
+                //vec3 windColorViz = vec3((vWindColor.x + vWindColor.y)/.)
+                //gl_FragColor = vec4(windColorViz, 1.0)
+
+                #include <tonemapping_fragment>
+                #include <colorspace_fragment>
+
+                //fog
+                #include <fog_fragment
+                //fog
             }
-
-            diffuseColor.rgb = clamp(diffuseColor.rgb * shadow,0.0,1.0);
-            
-            #include <alphatest_fragment>
-
-            gl_FragColor = vec4(grassFinalColor, 1.0)
-
-            //uncomment to utilize Wind
-            //vec3 windColorViz = vec3((vWindColor.x + vWindColor.y)/.)
-            //gl_FragColor = vec4(windColorViz, 1.0)
-
-            #include <tonemapping_fragment>
-            #include <colorspace_fragment>
-
+            `
         }
-        `
-        }
+    }
+
+    setupTextures(grassAlphaTexture: THREE.Texture, noiseTexture: THREE.Texture){
+        
     }
 }
