@@ -3,7 +3,7 @@ import Stats from 'stats-gl'
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 import * as dat from 'dat.gui'
 
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.d.ts"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 import { MeshSurfaceSampler} from "three/addons/math/MeshSurfaceSampler.js"
 import { GrassMaterial } from './GrassMaterial.ts';
  
@@ -22,6 +22,7 @@ export class FluffyGrass{
     private stats : Stats;
     private orbitControls : OrbitControls;
     private gui: dat.GUI;
+    private sceneGUI: dat.GUI
     private sceneProps = {
         fogColor : '#eeeeee',
         terrainColor: '#5e875e',
@@ -94,9 +95,11 @@ export class FluffyGrass{
         this.setupGUI();
         this.setupStats();
         this.setupTextures();
-        // this.createTube()
+        // this.createCube()
         this.loadModels()
-        this.setupEventListiner()
+        this.setupEventListeners()
         this.addLights();
     }
+
+
 }
