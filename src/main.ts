@@ -110,4 +110,8 @@ export class FluffyGrass{
         cube.castShadow = true;
         this.scene.add(cube); 
     }
+    
+    private addLights(){
+        const ambientLight = new THREE.
+    }
 }
