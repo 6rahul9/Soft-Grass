@@ -19,7 +19,7 @@ export class FluffyGrass{
     private renderer : THREE.WebGLRenderer;
     private scene : THREE.Scene
     private canvas: HTMLCanvasElement;
-    private Stats : Stats;
+    private stats : Stats;
     private orbitControls : OrbitControls;
     private gui: dat.GUI;
     private sceneProps = {
