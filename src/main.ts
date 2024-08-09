@@ -35,6 +35,7 @@ export class FluffyGrass{
         uTime : {value : 0 },
         color : { value : new THREE.Color('#000ff')},
     };
+    private clock = new THREE.Clock();
 
     private terrainMat : THREE.MeshPhongMaterial;
     private grassGeometry = new THREE.BufferGeometry();
@@ -56,7 +57,7 @@ export class FluffyGrass{
         this.camera = new THREE.PerspectiveCamera( 75,
         window.innerWidth / window.innerHeight, 0.1, 1000)
         
-        this.camera.position.set(-17, 10, -12)
+        this.camera.position.set(-17, 12, -10)
         this.scene = new THREE.Scene()
 
         this.scene.background = new THREE.Color(this.sceneProps.fogColor)
