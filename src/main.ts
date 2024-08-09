@@ -102,5 +102,12 @@ export class FluffyGrass{
         this.addLights();
     }
 
-
+    private createCube(){
+        const geometry = new THREE.BoxGeometry(2,7,2)
+        const material = new THREE.MeshPhongMaterial({ color: 0x333333 })
+        const cube = new THREE.Mesh(geometry, material)
+        cube.position.set(6,5,-3)
+        cube.castShadow = true;
+        this.scene.add(cube); 
+    }
 }
