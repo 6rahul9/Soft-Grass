@@ -1,12 +1,11 @@
 import * as THREE from "three"
 import Stats from 'stats-gl'
-import { GLTFLoader } from "three/examples/jsm/Addons.js"
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 import * as dat from 'dat.gui'
 
-import { OrbitControls } from "three/examples/jsm/Addons.js"
-import { MeshSurfaceSampler } from "three/examples/jsm/Addons.js"
-// import { GrassMaterial } from "./GrassMaterial.ts";
-import GrassMaterial from './GrassMaterial.ts';
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.d.ts"
+import { MeshSurfaceSampler} from "three/addons/math/MeshSurfaceSampler.js"
+import { GrassMaterial } from './GrassMaterial.ts';
  
 
 export class FluffyGrass{
