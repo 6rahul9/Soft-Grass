@@ -112,6 +112,9 @@ export class FluffyGrass{
     }
     
     private addLights(){
-        const ambientLight = new THREE.
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+        this.scene.add(ambientLight)
+
+        
     }
 }
