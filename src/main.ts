@@ -114,7 +114,15 @@ export class FluffyGrass{
     private addLights(){
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
         this.scene.add(ambientLight)
-
-        
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2)
+        directionalLight.castShadow = true;
+        directionalLight.position.set(100, 100,100);
+        directionalLight.shadow.camera.far = 200
+        directionalLight.shadow.camera.left = -50
+        directionalLight.shadow.camera.right= 50
+        directionalLight.shadow.camera.top= 50
+        directionalLight.shadow.camera.bottom = -50
+        directionalLight.shadow.mapSize.set(2048, 2048);
+        this.scene.add(directionalLight);
     }
 }
