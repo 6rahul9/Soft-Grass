@@ -139,13 +139,24 @@ export class FluffyGrass{
         )
 
         grassInstancedMesh.receiveShadow = true;
-        const position = new THREE.Vector3()
-        cosnt quaternion = new THREE.Quaternion()
-        cosnt scale  = new THREE.Vector3(1, 1, 1)
-        cosnt normal = new THREE.Vector3();
-        cosnt yAxis  = new THREE.Vector3(0, 1, 0)
-        cosnt matrix  = new THREE.Matrix4(1, 1, 1)
+        const position = new THREE.Vector3();
+        const quaternion = new THREE.Quaternion();
+        const scale  = new THREE.Vector3(1, 1, 1)
+        const normal = new THREE.Vector3();
+        const yAxis  = new THREE.Vector3(0, 1, 0);
+        const matrix  = new THREE.Matrix4();
 
-        
+        //sample randomly from the surface ~ creating an instance of the sample 
+        //geometry at each sample point
+
+        for(let i=0; i< this.grassCount; i++){
+            sampler.sample(position, normal)
+            //align the instance with the surface normal
+            quaternion.setFromUnitVectors(yAxis, normal)
+
+
+            //create a random rotation around Y-axis
+            const randomRotation = new THREE.Euler(0, Math.random() * Math.PI * 2, 0)
+        }
     }
 }
