@@ -133,6 +133,19 @@ export class FluffyGrass{
         //create a sampler for mesh surface
         const sampler = new MeshSurfaceSampler(surfaceMesh).setWeightAttribute("color").build();
 
+        //create amaterial for grass
+        const grassInstancedMesh = new THREE.InstancedMesh(
+            grassGeometry, this.grassMaterial.material, this.grassCount
+        )
+
+        grassInstancedMesh.receiveShadow = true;
+        const position = new THREE.Vector3()
+        cosnt quaternion = new THREE.Quaternion()
+        cosnt scale  = new THREE.Vector3(1, 1, 1)
+        cosnt normal = new THREE.Vector3();
+        cosnt yAxis  = new THREE.Vector3(0, 1, 0)
+        cosnt matrix  = new THREE.Matrix4(1, 1, 1)
+
         
     }
 }
