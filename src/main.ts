@@ -157,6 +157,19 @@ export class FluffyGrass{
 
             //create a random rotation around Y-axis
             const randomRotation = new THREE.Euler(0, Math.random() * Math.PI * 2, 0)
+            const randomQuaternion = new THREE.Quaternion().setFromEuler(randomRotation);
+
+
+            //combine the allin item with the random rotation
+            quaternion.multiply(randomQuaternion)
+
+            //set the new scale in matrix 
+            matrix.compose(position, quaternion, scale)
+
+            grassInstancedMesh.setMatrixAt(i, matrix)
         }
+        this.scene.add(grassInstancedMesh);
     }
+
+    
 }
