@@ -125,4 +125,14 @@ export class FluffyGrass{
         directionalLight.shadow.mapSize.set(2048, 2048);
         this.scene.add(directionalLight);
     }
+
+    private addGrass(
+        surfaceMesh : THREE.Mesh,
+        grassGeometry: THREE.BufferGeometry
+    ){
+        //create a sampler for mesh surface
+        const sampler = new MeshSurfaceSampler(surfaceMesh).setWeightAttribute("color").build();
+
+        
+    }
 }
