@@ -349,7 +349,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { MeshSurfaceSampler } from "three/addons/math/MeshSurfaceSampler.js";
 import { GrassMaterial } from "./GrassMaterial";
 
-export class FluffyGrass {
+export class SoftGrass {
 	// # Need access to these outside the comp
 	private loadingManager: THREE.LoadingManager;
 	private textureLoader: THREE.TextureLoader;
@@ -686,5 +686,5 @@ export class FluffyGrass {
 }
 
 const canvas = document.querySelector("#canvas") as HTMLCanvasElement;
-const app = new FluffyGrass(canvas);
+const app = new SoftGrass(canvas);
 app.render();
