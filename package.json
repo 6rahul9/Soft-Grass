@@ -10,23 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/dat.gui": "^0.7.13",
-    "@types/three": "^0.167.1",
+    "@types/dat.gui": "^0.7.12",
+    "@types/three": "^0.159.0",
     "dat.gui": "^0.7.9",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "stats-gl": "^2.2.8",
-    "three": "^0.167.0"
+    "stats-gl": "^2.0.1",
+    "three": "^0.159.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "@typescript-eslint/parser": "^7.15.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
   }
